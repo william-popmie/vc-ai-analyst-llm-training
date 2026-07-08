@@ -6,6 +6,7 @@ Output: 1 (invest) / 0 (don't invest), predicting how the VC evaluators would de
 Run:  .venv/bin/python train.py
 """
 
+import os
 import numpy as np
 import pandas as pd
 from sklearn.ensemble import HistGradientBoostingClassifier
@@ -19,8 +20,9 @@ from sklearn.metrics import (
 )
 import joblib
 
-DATA_FILE = "datafile.csv"
-MODEL_FILE = "model.joblib"
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_FILE = os.path.join(SCRIPT_DIR, "../data/datafile.csv")
+MODEL_FILE = os.path.join(SCRIPT_DIR, "../models/model.joblib")
 
 CRITERIA = [
     "Team",

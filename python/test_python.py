@@ -1,17 +1,19 @@
 """Predict an invest (1) / pass (0) decision from the 7 inputs.
 
 Usage:
-    .venv/bin/python predict.py TEAM TECH MARKET VALUEPROP COMPADV SOCIAL FUNDING
+    .venv/bin/python python/test_python.py TEAM TECH MARKET VALUEPROP COMPADV SOCIAL FUNDING
 
 Example (Stellerian, funding 220000):
-    .venv/bin/python predict.py 3 2 3 2 4 1 220000
+    .venv/bin/python python/test_python.py 3 2 3 2 4 1 220000
 """
 
+import os
 import sys
 import pandas as pd
 import joblib
 
-MODEL_FILE = "model.joblib"
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_FILE = os.path.join(SCRIPT_DIR, "../models/model.joblib")
 
 
 def predict(team, technology, market, value_prop, comp_adv, social, funding):
